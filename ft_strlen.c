@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 20:31:42 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/08 23:26:39 by junkwama         ###   ########.fr       */
+/*   Created: 2023/05/08 22:42:04 by junkwama          #+#    #+#             */
+/*   Updated: 2023/05/08 22:59:21 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
+#include "libft.h"
 
-# define LIBFT_H
-# include <stdlib.h>
-# include <stdbool.h>
-# include <stddef.h>
+size_t	ft_strlen(const char *s)
+{
+	int	a;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-void *	ft_memset(void *b, int c, size_t len);
-
-#endif
+	a = 0;
+	while (s[a] != '\0')
+		a++;
+	return (a);
+}
