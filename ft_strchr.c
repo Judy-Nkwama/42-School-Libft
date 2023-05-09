@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: junkwama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 00:30:33 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/09 07:09:17 by junkwama         ###   ########.fr       */
+/*   Created: 2023/05/09 07:43:53 by junkwama          #+#    #+#             */
+/*   Updated: 2023/05/09 07:57:02 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	char	*str_dst;
-	char	*str_src;
+	int	len;
+	int	i;
 
-	str_dst = (char *)dst;
-	str_src = (char *)src;
 	i = 0;
-	while (i < n)
+	len = ft_strlen(s);
+	if (c == '\0')
+		return ((char *)(s + len));
+	while (s[i])
 	{
-		str_dst[i] = str_src[i];
+		if (s[i] == c)
+			return ((char *)(s + i));
 		i++;
 	}
-	return (dst);
+	return (0);
 }
