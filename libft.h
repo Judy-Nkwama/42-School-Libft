@@ -6,7 +6,7 @@
 /*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:31:42 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/09 08:01:12 by junkwama         ###   ########.fr       */
+/*   Updated: 2023/05/09 08:29:26 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int		ft_toupper(int c);
 int     ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
