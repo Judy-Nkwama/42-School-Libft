@@ -2,3 +2,5 @@
 /libft-war-machine
 /Libftest
 /libftTester
+*.o
+*.out

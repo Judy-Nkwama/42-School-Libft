@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 11:38:11 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/09 13:58:45 by junkwama         ###   ########.fr       */
+/*   Created: 2023/05/09 14:02:24 by junkwama          #+#    #+#             */
+/*   Updated: 2023/05/10 12:08:31 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	size_t	nlen;
+#include "libft.h"
 
-	if (*needle == '\0')
-		return ((char *)haystack);
-	nlen = ft_strlen(needle);
-	while ((int)len != 0 && *haystack != '\0' && len-- >= nlen)
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	number;
+	int	sign;
+
+	i = 0;
+	number = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		if (*haystack == *needle && ft_memcmp(haystack, needle, nlen) == 0)
-			return ((char *)haystack);
-		haystack++;
+		sign *= -1;
+		i++;
 	}
-	return (NULL);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = (number * 10) + (str[i] - 48);
+		i ++;
+	}
+	number *= sign;
+	return (number);
 }
