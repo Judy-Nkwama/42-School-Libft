@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 07:43:53 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/29 21:24:46 by junkwama         ###   ########.fr       */
+/*   Created: 2023/05/29 23:17:10 by junkwama          #+#    #+#             */
+/*   Updated: 2023/05/29 23:19:37 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int	len;
+void	ft_putstr_fd(char *s, int fd)
+{	
+	int	i;
 
-	len = ft_strlen(s);
-	if (*s == c)
-		return ((char *)s);
-	while (len > 0)
+	i = 0;
+	if (s)
 	{
-		if (s[len] == c)
-			return ((char *)(s + len));
-		len--;
+		while (s[i])
+		{
+			ft_putchar_fd(s[i], fd);
+			i++;
+		}
 	}
-	return (0);
 }
