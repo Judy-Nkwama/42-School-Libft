@@ -6,7 +6,7 @@
 /*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 01:02:36 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/30 01:32:13 by junkwama         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:53:51 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*str;
+	char	*str;
+	int		i;
 
-	i = 0;
-	if (!s || !f)
+	if (!s)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!str)
 		return (NULL);
-	str = ft_strdup(s);
-	while (str[i])
+	i = 0;
+	while (s[i])
 	{
-		str[i] = f(i, str[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

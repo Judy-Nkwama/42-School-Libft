@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkwama <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:01:45 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/09 11:30:18 by junkwama         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:57:50 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	int		d;
-	char	*_s1;
-	char	*_s2;
+	unsigned int	i;
+	unsigned char	*uc1;
+	unsigned char	*uc2;
 
-	_s1 = (char *)s1;
-	_s2 = (char *)s2;
+	if (n == 0)
+		return (0);
+	uc1 = (unsigned char *) s1;
+	uc2 = (unsigned char *) s2;
 	i = 0;
-	while (i < n)
+	while (i < n && *uc1 == *uc2)
 	{
-		if (_s1[i] == '\0' && _s2[i] == '\0' && i < n)
-			return (0);
-		d = (unsigned char)_s1[i] - (unsigned char)_s2[i];
-		if (d != 0)
-			return (d);
+		uc1++;
+		uc2++;
 		i++;
 	}
-	return (0);
+	if (i == n)
+	{
+		uc1--;
+		uc2--;
+	}
+	return (*uc1 - *uc2);
 }

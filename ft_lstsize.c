@@ -6,7 +6,7 @@
 /*   By: junkwama <junkwama@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 09:38:19 by junkwama          #+#    #+#             */
-/*   Updated: 2023/05/30 10:42:24 by junkwama         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:57:21 by junkwama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
+	t_list	*tmp;
 
 	i = 0;
-	while (lst)
+	tmp = lst;
+	while (tmp != NULL)
 	{
+		tmp = tmp->next;
 		i++;
-		lst = lst->next;
 	}
 	return (i);
 }
