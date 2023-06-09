@@ -14,13 +14,16 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*m;
-	int		tot_s;
+	void	*ptr;
+	int		bytes;
 
-	tot_s = size * count;
-	m = malloc(tot_s);
-	if (!m)
+	if (count + size < count || count + size < size)
 		return (NULL);
-	ft_bzero(m, tot_s);
-	return (m);
+	bytes = count * size;
+	ptr = malloc(bytes);
+	if (!ptr)
+		return (NULL);
+	while (bytes--)
+		((char *)ptr)[bytes] = 0;
+	return (ptr);
 }
